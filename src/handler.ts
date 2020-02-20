@@ -1,12 +1,10 @@
-// import { Sequelize, TEXT, Model } from 'sequelize';
-// import { Model } from 'sequelize-typescript';
 import {
   DATABASE_USER,
   DATABASE_NAME,
   DATABASE_PASSWORD,
   DATABASE_HOST,
   DATABASE_PORT,
-} from './config';
+} from 'src/config';
 
 const Sequelize = require('sequelize');
 
