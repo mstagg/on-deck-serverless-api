@@ -20,14 +20,14 @@
   ],
   "rules": {
     "prefer-destructuring": 0,
-    "import/prefer-default-export": 0,
+    "import/prefer-default-export": 0
   },
   "import/resolver": {
     "alias": {
       "map": [
         ["src", "./src"]
       ],
-      "extensions": [".js", ".ts", ".json", ".test.js"],
+      "extensions": [".js", ".ts", ".json", ".test.js"]
     }
   }
 }
