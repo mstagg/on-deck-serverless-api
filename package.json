@@ -3,18 +3,27 @@
   "version": "1.0.0",
   "description": "Lambda API powered by serverless",
   "main": "src/handler.js",
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^13.7.1",
+    "@types/sequelize": "^4.28.8",
+    "pg": "^7.18.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.4",
+    "sequelize-typescript": "^1.1.0"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
+    "serverless-dotenv-plugin": "^2.3.2",
     "serverless-offline": "^5.12.1",
     "serverless-webpack": "^5.3.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
-    "webpack": "^4.41.6"
+    "webpack": "^4.41.6",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
     "dev": "serverless offline",
