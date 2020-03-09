@@ -2,6 +2,8 @@ service: ondeck-powerlifting-api
 
 provider:
   name: aws
+  region: us-east-1
+  stage: ${env:DEPLOY_STAGE}
   runtime: nodejs12.x
   environment:
     DATABASE_NAME: ${env:DATABASE_NAME}

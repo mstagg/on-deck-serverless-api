@@ -1,3 +1,4 @@
+export const DEPLOY_STAGE: string = process.env.DEPLOY_STAGE || 'dev';
 export const DATABASE_NAME: string = process.env.DATABASE_NAME;
 export const DATABASE_USER: string = process.env.DATABASE_USER;
 export const DATABASE_PASSWORD: string = process.env.DATABASE_PASSWORD;
