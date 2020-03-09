@@ -6,6 +6,7 @@ provider:
   stage: ${env:DEPLOY_STAGE}
   runtime: nodejs12.x
   environment:
+    DEPLOY_STAGE: ${env:DEPLOY_STAGE}
     DATABASE_NAME: ${env:DATABASE_NAME}
     DATABASE_USER: ${env:DATABASE_USER}
     DATABASE_PASSWORD: ${env:DATABASE_PASSWORD}
