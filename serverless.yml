@@ -11,22 +11,12 @@ provider:
     DATABASE_PORT: ${env:DATABASE_PORT}
 
 functions:
-  hello:
-    handler: src/handler.helloFetch
+  app:
+    handler: src/handler.handler
     events:
-      - http:
-          path: hello
-          method: get
-  helloCreate:
-    handler: src/handler.helloCreate
-    events:
-      - http:
-          path: hello/{value}
-          method: get
-          request: 
-            parameters: 
-              paths: 
-                value: true
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+
 
 plugins:
   - serverless-webpack

@@ -6,10 +6,13 @@
   "dependencies": {
     "@types/node": "^13.7.1",
     "@types/sequelize": "^4.28.8",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "pg": "^7.18.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.4",
-    "sequelize-typescript": "^1.1.0"
+    "sequelize-typescript": "^1.1.0",
+    "serverless-http": "^2.3.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.20.0",

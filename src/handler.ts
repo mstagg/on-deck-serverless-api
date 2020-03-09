@@ -6,6 +6,9 @@ import {
   DATABASE_PORT,
 } from 'src/config';
 
+const express = require('express');
+const bodyParser = require('body-parser');
+const serverless = require('serverless-http');
 const Sequelize = require('sequelize');
 
 const db = new Sequelize(
@@ -32,21 +35,19 @@ const Test = db.define('tests', {
   },
 });
 
-export const helloFetch = async () => ({
-  statusCode: 200,
-  body: JSON.stringify({
-    message: (await Test.findAll()).map((x) => x.value),
-  }),
-});
+const app = express();
+app.use((bodyParser.json({ strict: false })));
 
-export const helloCreate = async (event) => {
-  const { value } = event.pathParameters;
+app.get('/', async (req, res) => res.send('Hello World'));
+app.get('/read', async (req, res) => {
+  const response = await Test.findAll().map((x) => x.value);
+  res.send(response);
+});
+app.get('/write/:value', async (req, res) => {
+  const { value } = req.params;
   await Test.create({ value });
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Done',
-    }),
-  };
-};
+  res.send('all good!');
+})
+
+export const handler = serverless(app);
