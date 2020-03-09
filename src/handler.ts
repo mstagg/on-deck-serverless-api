@@ -1,4 +1,5 @@
 import {
+  DEPLOY_STAGE,
   DATABASE_USER,
   DATABASE_NAME,
   DATABASE_PASSWORD,
@@ -18,7 +19,7 @@ const db = new Sequelize(
   {
     host: DATABASE_HOST,
     port: DATABASE_PORT,
-    schema: 'dev',
+    schema: DEPLOY_STAGE,
     dialect: 'postgres',
     pool: {
       max: 5,
