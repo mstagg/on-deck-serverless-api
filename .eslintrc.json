@@ -25,7 +25,8 @@
   "import/resolver": {
     "alias": {
       "map": [
-        ["src", "./src"]
+        ["src", "./src"],
+        ["auth", "./src/auth"]
       ],
       "extensions": [".js", ".ts", ".json", ".test.js"]
     }

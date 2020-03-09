@@ -6,6 +6,7 @@ import {
   DATABASE_HOST,
   DATABASE_PORT,
 } from 'src/config';
+import authRouter from 'auth/router';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -36,19 +37,22 @@ const Test = db.define('tests', {
   },
 });
 
-const app = express();
-app.use((bodyParser.json({ strict: false })));
+const appRouter = express();
+appRouter.use((bodyParser.json({ strict: false })));
 
-app.get('/', async (req, res) => res.send('Hello World'));
-app.get('/read', async (req, res) => {
+appRouter.get('/', async (req, res) => res.send('Hello World'));
+appRouter.get('/read', async (req, res) => {
   const response = await Test.findAll().map((x) => x.value);
   res.send(response);
 });
-app.get('/write/:value', async (req, res) => {
+appRouter.get('/write/:value', async (req, res) => {
   const { value } = req.params;
   await Test.create({ value });
 
   res.send('all good!');
 })
 
-export const handler = serverless(app);
+const app = express();
+app.use('/app/', appRouter);
+app.use('/auth/', authRouter);
+export const appService = serverless(app);
