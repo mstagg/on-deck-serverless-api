@@ -14,11 +14,16 @@ provider:
     DATABASE_PORT: ${env:DATABASE_PORT}
 
 functions:
-  app:
-    handler: src/handler.handler
+  auth:
+    handler: src/app.appService
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http: ANY /auth/
+      - http: 'ANY /auth/{proxy+}'
+  app:
+    handler: src/app.appService
+    events:
+      - http: ANY /app/
+      - http: 'ANY /app/{proxy+}'
 
 
 plugins:
